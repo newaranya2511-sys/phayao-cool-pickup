@@ -10,33 +10,73 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as OrderRouteImport } from './routes/order'
+import { Route as ProfileRouteImport } from './routes/profile'
+import { Route as PickupIndexRouteImport } from './routes/pickup.index'
+import { Route as PickupCodeRouteImport } from './routes/pickup.$code'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const OrderRoute = OrderRouteImport.update({
+  id: '/order',
+  path: '/order',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfileRoute = ProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PickupIndexRoute = PickupIndexRouteImport.update({
+  id: '/pickup/',
+  path: '/pickup/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PickupCodeRoute = PickupCodeRouteImport.update({
+  id: '/pickup/$code',
+  path: '/pickup/$code',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/order': typeof OrderRoute
+  '/profile': typeof ProfileRoute
+  '/pickup/$code': typeof PickupCodeRoute
+  '/pickup/': typeof PickupIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/order': typeof OrderRoute
+  '/profile': typeof ProfileRoute
+  '/pickup/$code': typeof PickupCodeRoute
+  '/pickup': typeof PickupIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/order': typeof OrderRoute
+  '/profile': typeof ProfileRoute
+  '/pickup/$code': typeof PickupCodeRoute
+  '/pickup/': typeof PickupIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/order' | '/profile' | '/pickup/$code' | '/pickup/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/order' | '/profile' | '/pickup/$code' | '/pickup'
+  id: '__root__' | '/' | '/order' | '/profile' | '/pickup/$code' | '/pickup/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  OrderRoute: typeof OrderRoute
+  ProfileRoute: typeof ProfileRoute
+  PickupCodeRoute: typeof PickupCodeRoute
+  PickupIndexRoute: typeof PickupIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +88,43 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/order': {
+      id: '/order'
+      path: '/order'
+      fullPath: '/order'
+      preLoaderRoute: typeof OrderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profile': {
+      id: '/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof ProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pickup/': {
+      id: '/pickup/'
+      path: '/pickup'
+      fullPath: '/pickup/'
+      preLoaderRoute: typeof PickupIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pickup/$code': {
+      id: '/pickup/$code'
+      path: '/pickup/$code'
+      fullPath: '/pickup/$code'
+      preLoaderRoute: typeof PickupCodeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  OrderRoute: OrderRoute,
+  ProfileRoute: ProfileRoute,
+  PickupCodeRoute: PickupCodeRoute,
+  PickupIndexRoute: PickupIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
