@@ -3,15 +3,16 @@ import { NumberRow } from "./parts";
 /** Wall-mounted indoor unit with clean airflow lines (drawn, not a photo). */
 export function AcIllustration() {
   return (
-    <div className="relative h-[192px] overflow-hidden rounded-[16px] bg-[linear-gradient(160deg,var(--mintsoft),color-mix(in_oklab,var(--sky)_10%,var(--surface))_55%,var(--mintsoft))] lg:h-[260px]">
+    <div className="relative h-[192px] overflow-hidden rounded-[16px] bg-[linear-gradient(160deg,color-mix(in_oklab,var(--mint)_45%,var(--mintsoft)),color-mix(in_oklab,var(--sky)_35%,var(--surface))_55%,color-mix(in_oklab,var(--mint)_40%,var(--mintsoft)))] lg:h-[260px]">
       <svg viewBox="0 0 330 192" preserveAspectRatio="xMidYMid slice" className="absolute inset-0 h-full w-full" aria-hidden>
-        <path className="aero-flow" d="M8 128c40-14 80-10 120-4s100 8 194-10" fill="none" stroke="var(--sky)" strokeOpacity=".45" strokeWidth="2.5" strokeLinecap="round" />
-        <path className="aero-flow" style={{ animationDelay: "-2s" }} d="M8 146c50-12 100-2 150-2s110-8 164-4" fill="none" stroke="var(--mint)" strokeOpacity=".55" strokeWidth="2.5" strokeLinecap="round" />
-        <path className="aero-flow" style={{ animationDelay: "-4s" }} d="M26 163c60-8 120 4 180 0s80-6 110-6" fill="none" stroke="var(--sky)" strokeOpacity=".4" strokeWidth="2.5" strokeLinecap="round" />
-        <path className="aero-flow" d="M210 96c30 0 60-4 104-12" fill="none" stroke="var(--sky)" strokeOpacity=".5" strokeWidth="2.5" strokeLinecap="round" />
+        <path className="aero-flow" d="M8 128c40-14 80-10 120-4s100 8 194-10" fill="none" stroke="var(--sky)" strokeOpacity=".9" strokeWidth="3.5" strokeLinecap="round" />
+        <path className="aero-flow" style={{ animationDelay: "-2s" }} d="M8 146c50-12 100-2 150-2s110-8 164-4" fill="none" stroke="var(--deep)" strokeOpacity=".85" strokeWidth="3.5" strokeLinecap="round" />
+        <path className="aero-flow" style={{ animationDelay: "-4s" }} d="M26 163c60-8 120 4 180 0s80-6 110-6" fill="none" stroke="var(--mint)" strokeOpacity=".9" strokeWidth="3.5" strokeLinecap="round" />
+        <path className="aero-flow" d="M210 96c30 0 60-4 104-12" fill="none" stroke="var(--sky)" strokeOpacity=".85" strokeWidth="3.5" strokeLinecap="round" />
       </svg>
-      <div className="absolute left-1/2 top-[34%] h-[56px] w-[208px] -translate-x-1/2 rounded-[14px] border border-line bg-surface shadow-[0_14px_24px_-10px_color-mix(in_oklab,var(--sky)_70%,transparent)] lg:h-[72px] lg:w-[270px]">
-        <span className="absolute bottom-2 right-3 h-1.5 w-1.5 rounded-full bg-mint" />
+      <div className="absolute left-1/2 top-[34%] h-[56px] w-[208px] -translate-x-1/2 rounded-[14px] border-2 border-sky/50 bg-surface shadow-[0_14px_24px_-10px_color-mix(in_oklab,var(--sky)_80%,transparent)] lg:h-[72px] lg:w-[270px]">
+        <span className="absolute inset-x-3 bottom-1.5 h-1 rounded-full bg-[linear-gradient(90deg,var(--mint),var(--sky))]" />
+        <span className="absolute bottom-2.5 right-3 h-2 w-2 rounded-full bg-mint shadow-[0_0_0_3px_color-mix(in_oklab,var(--mint)_35%,transparent)]" />
       </div>
     </div>
   );
